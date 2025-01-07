@@ -1,0 +1,262 @@
+// https://github.com/IgorAherne/trellis-stable-projectorz/releases/tag/latest
+// https://www.youtube.com/watch?v=vjys2eNZNnE
+
+In designing a platform game inspired by H.P. Lovecraft's "At the Mountain of Madness," the enemies should reflect the novel's themes of cosmic horror, isolation, and encounters with eldritch beings. Here is a curated list of enemy types, each designed to fit the game's aesthetic, mechanics, and narrative:
+
+1. **Elder Things**:
+   - **Design**: Starfish-like creatures with multiple appendages.
+   - **Behavior**: Capable of shooting energy beams or extending tentacles to grab the player.
+   - **Role**: Mid-level enemies or bosses, possibly with regenerative abilities.
+
+2. **Shoggoths**:
+   - **Design**: Amorphous, shape-changing creatures.
+   - **Behavior**: Can split into smaller forms or ooze through barriers.
+   - **Role**: Challenging enemies that require strategic avoidance or environmental interaction.
+
+3. **Byakhees**:
+   - **Design**: Constructed creatures with semi-animal features.
+   - **Behavior**: Patrol specific areas, use ranged or charge attacks.
+   - **Role**: Guard-like enemies in certain levels.
+
+4. **Nameless Horrors/Night Gaunts**:
+   - **Design**: Ethereal, unsettling creatures.
+   - **Behavior**: Manipulate time or space, affect the environment unpredictably.
+   - **Role**: Unusual enemies that add layers of complexity to gameplay.
+
+5. **Automatons/Constructed Entities**:
+   - **Design**: Mechanical guardians created by the Elder Things.
+   - **Behavior**: Predictable but tough, possibly immune to certain attacks.
+   - **Role**: Regular enemies in mechanical environments.
+
+6. **Mutated Forms**:
+   - **Design**: Bizarre, mutated creatures due to isolation and time.
+   - **Behavior**: Unique abilities and movements, reflecting their degenerate nature.
+   - **Role**: Uncommon enemies that surprise players with their behavior.
+
+7. **Environmental Hazards**:
+   - **Design**: Hostile environmental features like unstable ground or toxic areas.
+   - **Behavior**: Automatically trigger dangers without direct action.
+   - **Role**: Non-living challenges that test player reflexes and awareness.
+
+**Gameplay Considerations**:
+- **Progression**: Introduce more complex and powerful enemies as the player delves deeper into the ancient city.
+- **Player Abilities**: Incorporate Lovecraftian-themed tools, like ancient artifacts, for combat and environmental interaction.
+- **Environmental Puzzles**: Use the environment to bypass or defeat enemies, such as manipulating light or triggers.
+- **Narrative Integration**: Each enemy type represents different aspects of Lovecraftian horror, contributing to the game's lore and atmosphere.
+
+**Aesthetic and Balance**:
+- **Visual and Audio Design**: Eerie, unsettling visuals and sounds to enhance the horror theme.
+- **Enemy Balance**: Ensure enemies are challenging yet fair, with clear visual cues about behavior and vulnerabilities.
+
+By integrating these elements, the game will offer a compelling blend of platforming challenges and atmospheric horror, capturing the essence of "At the Mountain of Madness."
+
+
+Here are the detailed visual descriptions of the enemies for your platform game inspired by "At the Mountain of Madness" by Lovecraft. These descriptions are crafted to be used as prompts for generative AI image systems like Stable Diffusion:
+
+---
+
+### Elder Things
+An Elder Thing is a five-limbed, starfish-like creature with a central, bulbous body that pulsates with a faint greenish glow. Each limb is long and spindly, ending in a grasping appendage with rows of razor-sharp, retractable claws and flexible suction cups. The body is covered in a semi-transparent, gelatinous membrane with intricate, swirling patterns that shift in color from blue to purple, resembling constellations in the night sky. Its head has a cluster of five multifaceted, glowing red eyes arranged in a pentagonal pattern, each eye emitting an intense, malevolent light. The creature stands approximately 6 feet tall and moves with a fluid, undulating motion, leaving a trail of shimmering energy.
+
+---
+
+### Shoggoths
+A Shoggoth is an amorphous, shape-shifting creature composed of a dark, semi-liquid mass that constantly shifts and reforms. It extends long, writhing tendrils and jagged spikes tipped with sharp, jagged points that glisten with a sickly, viscous fluid. The mass has a rubbery texture with a sickly greenish-brown color, mottled with darker patches. It pulsates with life, and its surface is dotted with small, glowing yellow eyes that open and close unpredictably. The creature emits a low, bubbling sound as it oozes forward.
+
+---
+
+### Byakhees
+Byakhees are mechanical constructs with a mix of organic and metallic parts. They have a humanoid torso with a head resembling a horse's skull, complete with a long, pointed snout and large, glowing red eyes. Their limbs are a fusion of metal and flesh, with jointed, insectoid legs and clawed hands ending in sharp, retractable talons. The body is covered in a rusted, antiquated exoskeleton with intricate, hieroglyphic engravings that pulse with a faint, blue light. They carry energy blades or projectile launchers, using them with precision.
+
+---
+
+### Nameless Horrors/Night Gaunts
+Nameless Horrors, or Night Gaunts, are ethereal, semi-transparent creatures with twisted, humanoid shapes. They have elongated, spindly limbs with joints bending at impossible angles, covered in a shimmery, iridescent membrane shifting between purple and blue. Their faces are obscured by featureless masks or shifting features, with eyes appearing and disappearing randomly. They move with a graceful, dance-like motion, gliding through the air and leaving trails of shimmering energy. They emit a faint, eerie hum, manipulating time or space to create disorienting effects.
+
+---
+
+### Automatons/Constructed Entities
+Automatons are ancient, mechanical guardians with a bulky, rusted frame revealing exposed gears, pistons, and pipes. They have segmented limbs ending in clawed hands or armored feet, equipped with energy projectors or melee blades. Their exoskeleton is covered in hieroglyphic symbols glowing with a faint, green light, indicating their connection to ancient technology. They move with a deliberate, methodical pace, their movements accompanied by the clanking of metal and hiss of steam.
+
+---
+
+### Mutated Forms
+Mutated Forms are misshapen, distorted creatures with twisted limbs and bloated bodies. They have unnatural features like too many eyes or limbs ending in tentacles or sharp claws. Their skin is a sickly green or yellow, with patches of decayed flesh or glowing growths pulsating with light. They move unpredictably, lurching and stumbling, and emit a foul, rotting stench.
+
+---
+
+These descriptions capture the essence of Lovecraftian horror, providing vivid imagery for AI-generated art and enhancing the atmospheric elements of your game.
+
+
+
+**Game Levels and Locations for "At the Mountain of Madness" Platform Game**
+
+1. **Level 1: The Antarctic Research Base**
+   - **Setting**: A snowy, abandoned research base with exterior and interior areas.
+   - **Theme**: Cold, isolation, abandonment.
+   - **Enemies**: Basic mutated forms, occasional byakhees.
+   - **Challenges**: Navigating through the base, dealing with cold and wind.
+   - **Story Elements**: Discover journals and clues about the expedition's disappearance.
+
+2. **Level 2: The Approach to the Mountain**
+   - **Setting**: Harsh, icy terrain leading to the mountain's entrance.
+   - **Theme**: Exposure to the elements, treacherous paths.
+   - **Enemies**: Environmental hazards like snowstorms, ice cliffs.
+   - **Challenges**: Platforming over icy terrain, avoiding crevasses.
+   - **Story Elements**: Uncover signs of ancient civilizations and find maps or symbols.
+
+3. **Level 3: Outer Chambers of the Ancient City**
+   - **Setting**: Large, open chambers with ancient, crumbling architecture.
+   - **Theme**: Decay, mystery, beginnings of eldritch influence.
+   - **Enemies**: Elder Things, basic automatons.
+   - **Challenges**: Navigating large spaces, avoiding traps.
+   - **Story Elements**: Discover more about the city's history and find artifacts.
+
+4. **Level 4: Deep Underground Corridors**
+   - **Setting**: Narrow, dark corridors with flickering lights and strange symbols.
+   - **Theme**: Oppression, confusion due to possible non-Euclidean geometry.
+   - **Enemies**: Shoggoths, Nameless Horrors.
+   - **Challenges**: Complex platforming, puzzles involving geometry or symbols.
+   - **Story Elements**: Encounter dangerous creatures and uncover dark rituals.
+
+5. **Level 5: Sacred Chambers**
+   - **Setting**: Ornate, ceremonial chambers with significant artifacts.
+   - **Theme**: Reverence, danger, ancient power.
+   - **Enemies**: Powerful Elder Things, advanced automatons.
+   - **Challenges**: Guarded areas, complex puzzles to access artifacts.
+   - **Story Elements**: Discover the city's purpose and face major bosses.
+
+6. **Level 6: Frozen Lake Levels**
+   - **Setting**: Platforming sections over icy lakes with thin ice.
+   - **Theme**: Perilous, cold, with a sense of fragility.
+   - **Enemies**: Mutated forms, environmental hazards like ice breaking.
+   - **Challenges**: Precise platforming, managing ice thickness.
+   - **Story Elements**: Find remnants of past expeditions and encounter environmental puzzles.
+
+7. **Level 7: Inner Sanctum - The Elder Ones' Lair**
+   - **Setting**: A large, open chamber with an otherworldly atmosphere.
+   - **Theme**: Ultimate confrontation, cosmic horror.
+   - **Enemies**: Final boss, possibly an Elder Thing or a horror manifestation.
+   - **Challenges**: Intense platforming, boss battle with complex patterns.
+   - **Story Elements**: Confront the horror's source and resolve the main plot.
+
+**Additional Considerations:**
+- **Player Progression**: Start with basic platforming skills and acquire abilities like double jumps or energy shields.
+- **Environmental Storytelling**: Use architecture, artifacts, and ambient sounds to tell the story.
+- **Sound Design**: Eerie soundtrack with ambient sounds like howling winds and distant echoes.
+- **Optional Areas**: Include secrets and alternate paths for exploration and replay value.
+
+This level structure immerses players in a progressively terrifying and mysterious world, combining platforming, puzzles, and horror elements inspired by Lovecraft's novel.
+
+Certainly! Here are the detailed visual descriptions for each location in your Lovecraft-inspired platform game, tailored for use as prompts for generative AI systems like Stable Diffusion:
+
+---
+
+### 1. Antarctic Research Base
+- **Setting**: A sprawling, abandoned research base nestled in a snowy expanse.
+- **Details**: Snow-covered buildings with frosty windows, broken scientific equipment scattered around, and a sense of desolation. Interior rooms are dimly lit with old, dusty equipment and papers scattered everywhere, creating a creepy, foreboding atmosphere.
+- **Atmosphere**: Cold, isolated, and eerie, with a hint of mystery lurking in every corner.
+
+---
+
+### 2. Approach to the Mountain
+- **Setting**: A harsh, icy landscape leading to a towering mountain range.
+- **Details**: Jagged cliffs, deep crevasses, and dangerous ice formations. The sky is overcast with dark clouds, emphasizing the sense of danger and mystery.
+- **Atmosphere**: Perilous and majestic, with a looming sense of what lies ahead.
+
+---
+
+### 3. Outer Chambers of the Ancient City
+- **Setting**: Large, open spaces with crumbling stone structures.
+- **Details**: Ancient, decayed architecture with strange symbols etched into the walls. Non-Euclidean geometry creates a disorienting feel, with remnants of advanced technology mixed with organic growth.
+- **Atmosphere**: Mystical and unsettling, with a profound sense of age and forgotten power.
+
+---
+
+### 4. Deep Underground Corridors
+- **Setting**: Dark and oppressive narrow passages.
+- **Details**: Flickering lights, strange glowing symbols on walls, and a musty, damp atmosphere. Inconsistent lighting casts eerie shadows, and some parts may be flooded or have unstable ceilings.
+- **Atmosphere**:claustrophobic and eerie, with a sense of being watched by unseen entities.
+
+---
+
+### 5. Sacred Chambers
+- **Setting**: Grand, high-ceilinged rooms with intricate carvings and glowing artifacts.
+- **Details**: Rich colors like deep reds and golds contrast with colder tones. Altars or pedestals with mysterious, humming objects are central features.
+- **Atmosphere**: Reverent yet terrifying, with a palpable sense of ancient power and dread.
+
+---
+
+### 6. Frozen Lake Levels
+- **Setting**: Treacherous, icy landscapes with thin ice covering deep lakes.
+- **Details**: Slippery surfaces, precarious ice bridges, and a bluish tint with steam rising from cracks in the ice.
+- **Atmosphere**: Perilous and tense, with a constant sense of danger lurking beneath the surface.
+
+---
+
+### 7. Inner Sanctum - The Elder Ones' Lair
+- **Setting**: A massive chamber with towering, otherworldly structures.
+- **Details**: A large, ominous entity at the center, with surreal lighting and strange color patterns that warp perception. The air is thick with tension and malevolent energy.
+- **Atmosphere**: Awe-inspiring and terrifying, with an overwhelming sense of cosmic horror.
+
+---
+
+These descriptions should provide a rich foundation for generating visually compelling images that capture the essence of each location in your game.
+
+
+**List of Weapons and Tools for "At the Mountain of Madness" Game**
+
+1. **Vintage Pistol**
+   - A basic firearm for combat, fitting the antique research base setting.
+
+2. **Bulky Flamethrower**
+   - Useful against organic enemies, with a design that suggests vintage technology.
+
+3. **Energy Pistol**
+   - An ancient device firing energy bolts, with a futuristic, otherworldly appearance and limited energy source.
+
+4. **Crowbar**
+   - A versatile tool for breaking obstacles or as a melee weapon.
+
+5. **Flashlight**
+   - Essential for exploring dark areas, with a special mode to reveal hidden paths or weaken certain enemies.
+
+6. **Ancient Tablet**
+   - Unlocks doors or provides knowledge, with a cooldown before reuse.
+
+7. **Time Manipulation Device**
+   - Allows brief manipulation of time for avoiding attacks or solving puzzles.
+
+8. **Eldritch Tome**
+   - Contains spells or knowledge for casting illusions or creating barriers, with a sanity meter cost.
+
+9. **Gas Mask**
+   - Protects against toxic environments or gas-emitting enemies.
+
+10. **Gravity Gun**
+    - Manipulates objects for combat and puzzle-solving, with a resource management element.
+
+11. **Sonic Resonator**
+    - Emits sound waves to disrupt enemies or open sealed areas.
+
+12. **Quantum Blade**
+    - A sword that phases through enemies or walls, offering combat and exploration benefits.
+
+13. **Environmental Suits**
+    - Provides protection against extreme cold or hostile environments, essential for survival.
+
+14. **Decoy Projector**
+    - Creates illusions to confuse enemies, offering strategic advantages.
+
+15. **Gravity Boots**
+    - Allows sticking to walls or ceilings, enhancing platforming abilities.
+
+**Design Considerations:**
+
+- **Thematic Fit:** Each item aligns with the cosmic horror theme, featuring mystical or ancient properties.
+- **Gameplay Balance:** A mix of offensive weapons and utility tools for diverse playstyles.
+- **Narrative Integration:** Items are discovered in the research base or ancient city, unlocking new areas or abilities.
+- **Visual and Auditory Design:** Unique appearances and sounds that enhance the Lovecraftian atmosphere.
+- **Balance and Consequences:** Items have limitations or dark consequences, maintaining gameplay challenge and psychological horror elements.
+
+This list provides a comprehensive set of weapons and tools that enhance gameplay, fit the game's theme, and offer a balanced experience for players.

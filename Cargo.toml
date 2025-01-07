@@ -1,0 +1,9 @@
+[package]
+name = "platquad"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+macroquad = "0.4.13"
+macroquad-platformer = "0.2.0"
+macroquad-tiled = "0.2.1"
