@@ -1,5 +1,6 @@
 // https://github.com/IgorAherne/trellis-stable-projectorz/releases/tag/latest
 // https://www.youtube.com/watch?v=vjys2eNZNnE
+// https://civitai.com/models/165876/2d-pixel-toolkit-2d
 
 In designing a platform game inspired by H.P. Lovecraft's "At the Mountain of Madness," the enemies should reflect the novel's themes of cosmic horror, isolation, and encounters with eldritch beings. Here is a curated list of enemy types, each designed to fit the game's aesthetic, mechanics, and narrative:
 
