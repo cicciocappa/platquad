@@ -391,6 +391,9 @@ class AnimatedSkeletonViewer extends SkeletonViewer {
         
         // Add animation controls
         this.addAnimationControls();
+
+        this.boneTransforms = new Map();
+        this.precalculateTransforms();
     }
     
     // Matrix operations helpers
@@ -431,19 +434,7 @@ class AnimatedSkeletonViewer extends SkeletonViewer {
         ];
     }
 
-    multiplyMatrices(a, b) {
-        return [
-            a[0]*b[0] + a[1]*b[3] + a[2]*b[6],
-            a[0]*b[1] + a[1]*b[4] + a[2]*b[7],
-            a[0]*b[2] + a[1]*b[5] + a[2]*b[8],
-            a[3]*b[0] + a[4]*b[3] + a[5]*b[6],
-            a[3]*b[1] + a[4]*b[4] + a[5]*b[7],
-            a[3]*b[2] + a[4]*b[5] + a[5]*b[8],
-            a[6]*b[0] + a[7]*b[3] + a[8]*b[6],
-            a[6]*b[1] + a[7]*b[4] + a[8]*b[7],
-            a[6]*b[2] + a[7]*b[5] + a[8]*b[8]
-        ];
-    }
+ 
 
     multiplyMatrixVector(matrix, vector) {
         return {
@@ -463,6 +454,111 @@ class AnimatedSkeletonViewer extends SkeletonViewer {
             this.multiplyMatrices(matX, matY),
             matZ
         );
+    }
+
+     // Matrix multiplication helper
+     multiplyMatrices(a, b) {
+        return [
+            a[0]*b[0] + a[1]*b[3] + a[2]*b[6],
+            a[0]*b[1] + a[1]*b[4] + a[2]*b[7],
+            a[0]*b[2] + a[1]*b[5] + a[2]*b[8],
+            a[3]*b[0] + a[4]*b[3] + a[5]*b[6],
+            a[3]*b[1] + a[4]*b[4] + a[5]*b[7],
+            a[3]*b[2] + a[4]*b[5] + a[5]*b[8],
+            a[6]*b[0] + a[7]*b[3] + a[8]*b[6],
+            a[6]*b[1] + a[7]*b[4] + a[8]*b[7],
+            a[6]*b[2] + a[7]*b[5] + a[8]*b[8]
+        ];
+    }
+
+    // Matrix inverse helper
+    inverseMatrix(m) {
+        const det = m[0] * (m[4] * m[8] - m[7] * m[5]) -
+                   m[1] * (m[3] * m[8] - m[5] * m[6]) +
+                   m[2] * (m[3] * m[7] - m[4] * m[6]);
+        
+        const invDet = 1 / det;
+        
+        return [
+            (m[4] * m[8] - m[7] * m[5]) * invDet,
+            (m[2] * m[7] - m[1] * m[8]) * invDet,
+            (m[1] * m[5] - m[2] * m[4]) * invDet,
+            (m[5] * m[6] - m[3] * m[8]) * invDet,
+            (m[0] * m[8] - m[2] * m[6]) * invDet,
+            (m[3] * m[2] - m[0] * m[5]) * invDet,
+            (m[3] * m[7] - m[6] * m[4]) * invDet,
+            (m[6] * m[1] - m[0] * m[7]) * invDet,
+            (m[0] * m[4] - m[3] * m[1]) * invDet
+        ];
+    }
+
+    createRotationMatrix(angle, axis) {
+        const rad = angle * Math.PI / 180;
+        const cos = Math.cos(rad);
+        const sin = Math.sin(rad);
+        
+        switch(axis.toLowerCase()) {
+            case 'x':
+                return [
+                    1, 0, 0,
+                    0, cos, -sin,
+                    0, sin, cos
+                ];
+            case 'y':
+                return [
+                    cos, 0, sin,
+                    0, 1, 0,
+                    -sin, 0, cos
+                ];
+            case 'z':
+                return [
+                    cos, -sin, 0,
+                    sin, cos, 0,
+                    0, 0, 1
+                ];
+        }
+    }
+
+    precalculateTransforms() {
+        const bones = this.skeleton.bones;
+        
+        for (const [boneName, bone] of Object.entries(bones)) {
+            // For arms, we need to negate the forward direction
+            let direction = { ...bone.direction };
+            if (boneName.toLowerCase().includes('arm') || boneName.toLowerCase().includes('hand')) {
+                direction.z = -direction.z; // Flip the forward direction for arms
+            }
+            
+            if (!bone.axis) {
+                this.boneTransforms.set(boneName, {
+                    direction,
+                    C: [1,0,0, 0,1,0, 0,0,1],
+                    Cinv: [1,0,0, 0,1,0, 0,0,1],
+                    B: [1,0,0, 0,1,0, 0,0,1]
+                });
+                continue;
+            }
+            
+            // Create C matrix from axis angles using specified order
+            let C = [1,0,0, 0,1,0, 0,0,1]; // Identity matrix
+            const order = bone.axis.order.toLowerCase();
+            
+            for (let i = 0; i < order.length; i++) {
+                const angle = bone.axis[order[i].toLowerCase()];
+                const rotMatrix = this.createRotationMatrix(angle, order[i]);
+                C = this.multiplyMatrices(C, rotMatrix);
+            }
+            
+            const Cinv = this.inverseMatrix(C);
+            const B = [1,0,0, 0,1,0, 0,0,1];
+            
+            this.boneTransforms.set(boneName, {
+                direction,
+                C,
+                Cinv,
+                B
+            });
+        }
     }
     
     addAnimationControls() {
@@ -526,40 +622,49 @@ class AnimatedSkeletonViewer extends SkeletonViewer {
         if (!this.frames || !this.frames.has(this.currentFrame)) return;
         
         const frameData = this.frames.get(this.currentFrame);
-        
-        // Clear current positions
         this.bonePositions.clear();
         
-        // Get root motion data
         const rootData = frameData.get('root') || [0, 0, 0, 0, 0, 0];
         const rootPos = {
             x: rootData[0],
             y: rootData[1],
             z: rootData[2]
         };
-        const rootRot = this.getRotationMatrix(rootData[5], rootData[4], rootData[3]); // RX, RY, RZ order
 
-        // Recursive function to update bone positions with rotations
-        const updateBonePosition = (boneName, parentPos, parentRotMatrix) => {
+        const updateBonePosition = (boneName, parentPos, parentTransform) => {
             const bone = this.skeleton.bones[boneName];
             if (!bone) return;
 
-            // Get bone's motion data
-            const motionData = frameData.get(boneName) || [];
-            let rotationMatrix = parentRotMatrix;
+            const transforms = this.boneTransforms.get(boneName);
+            if (!transforms) return;
 
-            // Apply bone's own rotation if it has DOF
+            const motionData = frameData.get(boneName) || [];
+            
+            // Create motion matrix M from DOFs
+            let M = [1,0,0, 0,1,0, 0,0,1];
+            
             if (bone.dof && motionData.length > 0) {
-                const rx = motionData[bone.dof.indexOf('rx')] || 0;
-                const ry = motionData[bone.dof.indexOf('ry')] || 0;
-                const rz = motionData[bone.dof.indexOf('rz')] || 0;
-                
-                const boneRotation = this.getRotationMatrix(rx, ry, rz);
-                rotationMatrix = this.multiplyMatrices(parentRotMatrix, boneRotation);
+                // Apply rotations in DOF order
+                bone.dof.forEach((dof, index) => {
+                    const angle = motionData[index] || 0;
+                    const axis = dof[1];
+                    const rotMatrix = this.createRotationMatrix(angle, axis);
+                    M = this.multiplyMatrices(M, rotMatrix);
+                });
             }
 
-            // Calculate bone direction with rotation
-            const direction = this.multiplyMatrixVector(rotationMatrix, bone.direction);
+            // Calculate local transform L = Cinv * M * C * B
+            let localTransform = this.multiplyMatrices(transforms.Cinv, M);
+            localTransform = this.multiplyMatrices(localTransform, transforms.C);
+            localTransform = this.multiplyMatrices(localTransform, transforms.B);
+            
+            // Combine with parent transform
+            const globalTransform = parentTransform ? 
+                this.multiplyMatrices(parentTransform, localTransform) : 
+                localTransform;
+            
+            // Apply transform to bone's adjusted direction
+            const direction = this.multiplyMatrixVector(globalTransform, transforms.direction);
             
             // Calculate end position
             const endPos = {
@@ -568,7 +673,6 @@ class AnimatedSkeletonViewer extends SkeletonViewer {
                 z: parentPos.z + direction.z * bone.length
             };
 
-            // Store bone position
             this.bonePositions.set(boneName, {
                 start: { ...parentPos },
                 end: { ...endPos }
@@ -577,14 +681,15 @@ class AnimatedSkeletonViewer extends SkeletonViewer {
             // Process children
             const children = this.skeleton.hierarchy[boneName] || [];
             children.forEach(childName => {
-                updateBonePosition(childName, endPos, rotationMatrix);
+                updateBonePosition(childName, endPos, globalTransform);
             });
         };
 
         // Start from root's children
         if (this.skeleton.hierarchy.root) {
+            const rootTransform = [1,0,0, 0,1,0, 0,0,1];
             this.skeleton.hierarchy.root.forEach(rootChild => {
-                updateBonePosition(rootChild, rootPos, rootRot);
+                updateBonePosition(rootChild, rootPos, rootTransform);
             });
         }
     }
